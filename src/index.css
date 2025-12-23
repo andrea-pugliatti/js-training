@@ -8,6 +8,47 @@ body {
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-.display {
-	background-color: red;
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.calculator {
+	width: 360px;
+	margin: 1rem;
+	.calculator-display {
+		width: 100%;
+		color: slategray;
+		background-color: white;
+		border: 1px dashed slategray;
+		border-radius: 10px;
+		font-size: 1.5rem;
+		margin: 1rem 0;
+		padding: 1rem;
+	}
+
+	button {
+		padding: 1rem;
+		width: calc(360px / 4 - 7px);
+		font-size: 1.1rem;
+		margin: 0.2rem;
+		border-radius: 10px;
+		border: 1px solid slategray;
+		background-color: white;
+	}
+
+	.number-button {
+		background-color: slategray;
+		color: white;
+	}
+
+	.operation-button {
+		background-color: rgb(255, 191, 72);
+		border: 1px solid rgb(255, 191, 72);
+		color: slategray;
+	}
+
+	.action-button {
+		color: slategray;
+	}
 }

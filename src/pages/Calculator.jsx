@@ -10,7 +10,7 @@ import { useState } from "react";
 export default function Calculator() {
 	const [firstNumber, setFirstNumber] = useState(0);
 	const [operation, setOperation] = useState("");
-	const [displayedNumber, setDisplayedNumber] = useState("0");
+	const [displayedNumber, setDisplayedNumber] = useState("");
 
 	const sum = (first, second) => Number(first) + Number(second);
 	const difference = (first, second) => Number(first) - Number(second);
@@ -32,8 +32,6 @@ export default function Calculator() {
 			case "division":
 				result = division(firstNumber, displayedNumber).toFixed(4);
 				break;
-			case "percent":
-				break;
 			default:
 				break;
 		}
@@ -42,16 +40,19 @@ export default function Calculator() {
 
 	return (
 		<div className="container">
-			<div>{Number(displayedNumber)}</div>
-			<form action={handleSubmit}>
+			<form className="calculator" action={handleSubmit}>
+				<div className="calculator-display">
+					{displayedNumber.length === 0 ? "0" : displayedNumber}
+				</div>
 				<div>
 					<button
 						id="back-button"
 						name="back-button"
 						type="button"
+						className="action-button"
 						onClick={() => {
 							if (displayedNumber.length <= 1) {
-								setDisplayedNumber("0");
+								setDisplayedNumber("");
 							} else {
 								setDisplayedNumber(
 									displayedNumber.substring(0, displayedNumber.length - 1),
@@ -66,8 +67,9 @@ export default function Calculator() {
 						id="cancel-button"
 						name="cancel-button"
 						type="button"
+						className="action-button"
 						onClick={() => {
-							setDisplayedNumber("0");
+							setDisplayedNumber("");
 							setFirstNumber(0);
 						}}
 					>
@@ -78,10 +80,11 @@ export default function Calculator() {
 						id="percent-button"
 						name="percent-button"
 						type="button"
+						className="action-button"
 						onClick={() => {
-							// setFirstNumber(Number(displayedNumber));
-							// setDisplayedNumber("0");
-							// setOperation("sum");
+							setDisplayedNumber(
+								division(Number(displayedNumber), 100).toFixed(4),
+							);
 						}}
 					>
 						%
@@ -91,9 +94,10 @@ export default function Calculator() {
 						id="division-button"
 						name="division-button"
 						type="button"
+						className="operation-button"
 						onClick={() => {
 							setFirstNumber(Number(displayedNumber));
-							setDisplayedNumber("0");
+							setDisplayedNumber("");
 							setOperation("division");
 						}}
 					>
@@ -106,6 +110,7 @@ export default function Calculator() {
 						id="seven-button"
 						name="seven-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 7);
 						}}
@@ -117,6 +122,7 @@ export default function Calculator() {
 						id="eight-button"
 						name="eight-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 8);
 						}}
@@ -128,6 +134,7 @@ export default function Calculator() {
 						id="nine-button"
 						name="nine-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 9);
 						}}
@@ -139,9 +146,10 @@ export default function Calculator() {
 						id="multiplication-button"
 						name="multiplication-button"
 						type="button"
+						className="operation-button"
 						onClick={() => {
 							setFirstNumber(Number(displayedNumber));
-							setDisplayedNumber("0");
+							setDisplayedNumber("");
 							setOperation("multiplication");
 						}}
 					>
@@ -154,6 +162,7 @@ export default function Calculator() {
 						id="four-button"
 						name="four-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 4);
 						}}
@@ -164,6 +173,7 @@ export default function Calculator() {
 						id="five-button"
 						name="five-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 5);
 						}}
@@ -174,6 +184,7 @@ export default function Calculator() {
 						id="six-button"
 						name="six-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 6);
 						}}
@@ -185,9 +196,10 @@ export default function Calculator() {
 						id="difference-button"
 						name="difference-button"
 						type="button"
+						className="operation-button"
 						onClick={() => {
 							setFirstNumber(Number(displayedNumber));
-							setDisplayedNumber("0");
+							setDisplayedNumber("");
 							setOperation("difference");
 						}}
 					>
@@ -200,6 +212,7 @@ export default function Calculator() {
 						id="one-button"
 						name="one-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 1);
 						}}
@@ -211,6 +224,7 @@ export default function Calculator() {
 						id="two-button"
 						name="two-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 2);
 						}}
@@ -222,6 +236,7 @@ export default function Calculator() {
 						id="three-button"
 						name="three-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 3);
 						}}
@@ -233,9 +248,10 @@ export default function Calculator() {
 						id="sum-button"
 						name="sum-button"
 						type="button"
+						className="operation-button"
 						onClick={() => {
 							setFirstNumber(Number(displayedNumber));
-							setDisplayedNumber("0");
+							setDisplayedNumber("");
 							setOperation("sum");
 						}}
 					>
@@ -248,6 +264,7 @@ export default function Calculator() {
 						id="sign-button"
 						name="sign-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber * -1);
 						}}
@@ -259,6 +276,7 @@ export default function Calculator() {
 						id="zero-button"
 						name="zero-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
 							setDisplayedNumber(displayedNumber + 0);
 						}}
@@ -270,14 +288,17 @@ export default function Calculator() {
 						id="comma-button"
 						name="comma-button"
 						type="button"
+						className="number-button"
 						onClick={() => {
-							// setDisplayedNumber(displayedNumber + ",00");
+							setDisplayedNumber(displayedNumber + ".00");
 						}}
 					>
 						{","}
 					</button>
 
-					<button type="submit">=</button>
+					<button className="operation-button" type="submit">
+						=
+					</button>
 				</div>
 			</form>
 		</div>
