@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Crea una pagina che permetta di inserire due numeri all’utente e, tramite dei pulsanti
@@ -41,6 +42,10 @@ export default function Calculator() {
 
 	return (
 		<div className="container">
+			<div className="calculator-title">
+				<h1>My first calculator</h1>
+				<Link to={"/"}>Go Home</Link>
+			</div>
 			<form className="calculator" action={handleSubmit}>
 				<div className="calculator-display">
 					{displayedNumber.length === 0 ? "0" : displayedNumber}
