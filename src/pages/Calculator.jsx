@@ -33,6 +33,7 @@ export default function Calculator() {
 				result = division(firstNumber, displayedNumber).toFixed(4);
 				break;
 			default:
+				result = "";
 				break;
 		}
 		setDisplayedNumber(result);
