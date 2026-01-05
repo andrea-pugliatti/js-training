@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 export default function TextConverter() {
 	const [inputString, setInputString] = useState("");
 
@@ -20,7 +22,10 @@ export default function TextConverter() {
 	return (
 		<div className="container">
 			<div className="text-converter">
-				<h1>Convertitore di Testo</h1>
+				<div>
+					<h1>Convertitore di Testo</h1>
+					<Link to={"/"}>Go Home</Link>
+				</div>
 
 				<input
 					id="string-input"
