@@ -7,6 +7,9 @@ export default function Homepage() {
 			<Link to={"/calculator"}>
 				<div>Calcolatrice</div>
 			</Link>
+			<Link to={"/text-converter"}>
+				<div>Convertitore di Testo</div>
+			</Link>
 		</div>
 	);
 }
