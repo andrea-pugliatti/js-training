@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Calculator from "./pages/Calculator";
+import Citations from "./pages/Citations";
 import GuessNumber from "./pages/GuessNumber";
 import Homepage from "./pages/Homepage";
 import OddEven from "./pages/OddEven";
@@ -14,6 +15,7 @@ function App() {
 				<Route path="/text-converter" element={<TextConverter />} />
 				<Route path="/odd-even" element={<OddEven />} />
 				<Route path="/guess-number" element={<GuessNumber />} />
+				<Route path="/citations" element={<Citations />} />
 			</Routes>
 		</BrowserRouter>
 	);
