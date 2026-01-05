@@ -13,6 +13,9 @@ export default function Homepage() {
 			<Link to={"/odd-even"}>
 				<div>Pari e dispari</div>
 			</Link>
+			<Link to={"/guess-number"}>
+				<div>Indovina il Numero</div>
+			</Link>
 		</div>
 	);
 }
