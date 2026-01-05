@@ -123,3 +123,54 @@ body {
 		}
 	}
 }
+
+.odd-even {
+	.title {
+		text-align: center;
+		padding: 1rem;
+		& > * + * {
+			margin-top: 1rem;
+		}
+	}
+
+	.numbers-input {
+		display: flex;
+		flex-wrap: wrap;
+		& input {
+			padding: 0.3rem 1rem;
+			margin: 0.7rem 1.2rem;
+			max-width: 100px;
+			border: 1px dashed black;
+			border-radius: 10px;
+		}
+	}
+
+	.numbers-output {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-top: 2rem;
+	}
+
+	.even-numbers,
+	.odd-numbers {
+		min-width: 400px;
+		border: 1px dashed black;
+		border-radius: 20px;
+		padding: 1rem;
+
+		h3 {
+			margin-bottom: 0.5rem;
+		}
+
+		& > div span {
+			font-size: 1.1rem;
+			font-weight: 400;
+		}
+
+		& > div span:first-child {
+			font-size: 0.9rem;
+			font-weight: 500;
+		}
+	}
+}

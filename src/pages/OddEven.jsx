@@ -1,4 +1,5 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <Ignore linter> */
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <Biome bug> */
 import { useEffect, useState } from "react";
 
 export default function OddEven() {
@@ -42,12 +43,13 @@ export default function OddEven() {
 						Mostra entrambi gli array e le loro somme.
 					</p>
 				</div>
-			</div>
-			<div className="numbers-input">
-				{numbers.map((current, index) => (
-					<div key={index}>
+
+				<div className="numbers-input">
+					{numbers.map((_, index) => (
 						<input
+							key={index}
 							type="number"
+							name="number-input"
 							value={numbers[index]}
 							onChange={(e) => {
 								const newNumbers = [...numbers];
@@ -55,27 +57,34 @@ export default function OddEven() {
 								setNumbers(newNumbers);
 							}}
 						/>
-					</div>
-				))}
-			</div>
-			<div className="even-numbers">
-				<h3>Pari</h3>
-				<div>Numeri: </div>
-				{evenNumbers.map((current, index) => (
-					<span key={index}>{current} </span>
-				))}
-				<div>
-					Somma: <span>{evenSum}</span>
+					))}
 				</div>
-			</div>
-			<div className="odd-numbers">
-				<h3>Dispari</h3>
-				<div>Numeri: </div>
-				{oddNumbers.map((current, index) => (
-					<span key={index}>{current} </span>
-				))}
-				<div>
-					Somma: <span>{oddSum}</span>
+				<div className="numbers-output">
+					<div className="even-numbers">
+						<h3>Pari</h3>
+						<div>
+							<span>Numeri: </span>
+							{evenNumbers.map((current, index) => (
+								<span key={index}>{current} </span>
+							))}
+						</div>
+						<div>
+							<span>Somma:</span> <span>{evenSum}</span>
+						</div>
+					</div>
+
+					<div className="odd-numbers">
+						<h3>Dispari</h3>
+						<div>
+							<span>Numeri: </span>
+							{oddNumbers.map((current, index) => (
+								<span key={index}>{current} </span>
+							))}
+						</div>
+						<div>
+							<span>Somma:</span> <span>{oddSum}</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
