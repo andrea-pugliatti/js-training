@@ -237,6 +237,78 @@ body {
 		font-weight: 700;
 	}
 }
+
+.pomodoro {
+	.title {
+		text-align: center;
+		padding: 1rem;
+
+		a {
+			color: black;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		& > * + * {
+			margin-top: 1rem;
+		}
+	}
+
+	.timer {
+		display: flex;
+		justify-content: center;
+
+		& > * {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 350px;
+			height: 250px;
+			font-size: 4rem;
+			font-weight: 700;
+			padding: 2rem;
+			color: rgb(255, 255, 255);
+			background-color: rgb(252, 92, 63);
+			border-radius: 150px;
+		}
+	}
+
+	.controls {
+		display: flex;
+		justify-content: center;
+		margin-top: 2rem;
+
+		& > * + * {
+			margin-left: 2px;
+		}
+
+		button {
+			font-size: 1.2rem;
+			font-weight: 600;
+			padding: 0.5rem 1.2rem;
+			color: white;
+			background-color: rgb(26, 101, 26);
+			border: none;
+			border-top-right-radius: 50px;
+			border-bottom-left-radius: 50px;
+		}
+
+		button:nth-child(3) {
+			border-top-left-radius: 50px;
+			border-bottom-right-radius: 50px;
+			border-top-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		button:hover {
+			cursor: pointer;
+			background-color: rgb(10, 73, 10);
+		}
+	}
+}
+
 .citations {
 	.title {
 		text-align: center;
@@ -297,24 +369,5 @@ body {
 		text-align: end;
 		font-weight: 700;
 		margin: 2rem 10rem 2rem 10rem;
-	}
-}
-
-.pomodoro {
-	.title {
-		text-align: center;
-		padding: 1rem;
-
-		a {
-			color: black;
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-
-		& > * + * {
-			margin-top: 1rem;
-		}
 	}
 }

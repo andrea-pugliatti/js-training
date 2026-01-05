@@ -47,17 +47,21 @@ export default function Pomodoro() {
 					<Link to={"/"}>Go Home</Link>
 				</div>
 
-				<div className="timer">{secondsToString(seconds)}</div>
+				<div className="controls">
+					<button type="button" onClick={() => handleStart()}>
+						Start
+					</button>
+					<button type="button" onClick={() => handlePause()}>
+						Pausa
+					</button>
+					<button type="button" onClick={() => handleReset()}>
+						Reset
+					</button>
+				</div>
 
-				<button type="button" onClick={() => handleStart()}>
-					Start
-				</button>
-				<button type="button" onClick={() => handlePause()}>
-					Pausa
-				</button>
-				<button type="button" onClick={() => handleReset()}>
-					Reset
-				</button>
+				<div className="timer">
+					<div>{secondsToString(seconds)}</div>
+				</div>
 			</div>
 		</div>
 	);
