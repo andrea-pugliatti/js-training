@@ -128,6 +128,15 @@ body {
 	.title {
 		text-align: center;
 		padding: 1rem;
+
+		a {
+			color: black;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
 		& > * + * {
 			margin-top: 1rem;
 		}

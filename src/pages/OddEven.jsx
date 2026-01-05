@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <Ignore linter> */
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: <Biome bug> */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function OddEven() {
 	const [numbers, setNumbers] = useState(Array(20).fill(0));
@@ -37,6 +38,7 @@ export default function OddEven() {
 			<div className="odd-even">
 				<div className="title">
 					<h1>Pari e dispari</h1>
+					<Link to={"/"}>Go Home</Link>
 					<p>
 						Scrivi una funzione che prenda in ingresso un array di 20 numeri e
 						crei due nuovi array: uno con i numeri pari, uno con i dispari.
