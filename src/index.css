@@ -299,3 +299,22 @@ body {
 		margin: 2rem 10rem 2rem 10rem;
 	}
 }
+
+.pomodoro {
+	.title {
+		text-align: center;
+		padding: 1rem;
+
+		a {
+			color: black;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		& > * + * {
+			margin-top: 1rem;
+		}
+	}
+}

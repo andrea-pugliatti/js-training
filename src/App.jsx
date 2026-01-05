@@ -4,6 +4,7 @@ import Citations from "./pages/Citations";
 import GuessNumber from "./pages/GuessNumber";
 import Homepage from "./pages/Homepage";
 import OddEven from "./pages/OddEven";
+import Pomodoro from "./pages/Pomodoro";
 import TextConverter from "./pages/TextConverter";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/text-converter" element={<TextConverter />} />
 				<Route path="/odd-even" element={<OddEven />} />
 				<Route path="/guess-number" element={<GuessNumber />} />
+				<Route path="/pomodoro" element={<Pomodoro />} />
 				<Route path="/citations" element={<Citations />} />
 			</Routes>
 		</BrowserRouter>

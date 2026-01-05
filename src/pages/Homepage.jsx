@@ -16,6 +16,9 @@ export default function Homepage() {
 			<Link to={"/guess-number"}>
 				<div>Indovina il Numero</div>
 			</Link>
+			<Link to={"/pomodoro"}>
+				<div>Pomodoro</div>
+			</Link>
 			<Link to={"/citations"}>
 				<div>Citazioni</div>
 			</Link>
