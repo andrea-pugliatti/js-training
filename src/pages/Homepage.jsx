@@ -10,6 +10,9 @@ export default function Homepage() {
 			<Link to={"/text-converter"}>
 				<div>Convertitore di Testo</div>
 			</Link>
+			<Link to={"/odd-even"}>
+				<div>Pari e dispari</div>
+			</Link>
 		</div>
 	);
 }
