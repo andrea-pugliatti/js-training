@@ -1,4 +1,4 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <Ignore linter> */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,13 +6,17 @@ export default function GuessNumber() {
 	const [randomNumber, setRandomNumber] = useState(0);
 	const [attempts, setAttempts] = useState([]);
 	const [lastAttempt, setLastAttempt] = useState("");
+	const [gameOver, setGameOver] = useState(false);
 
 	function getRandomNumber(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
 	function initializeGame() {
+		setGameOver(false);
 		setRandomNumber(getRandomNumber(1, 100));
+		setAttempts([]);
+		setLastAttempt("");
 	}
 
 	useEffect(initializeGame, []);
@@ -20,10 +24,12 @@ export default function GuessNumber() {
 	function handleSubmit(e) {
 		e.preventDefault();
 		if (lastAttempt !== "") setAttempts([...attempts, Number(lastAttempt)]);
+		if (Number(lastAttempt) === randomNumber) setGameOver(true);
 		setLastAttempt("");
 	}
 
 	function getResponse(input) {
+		console.log(randomNumber);
 		if (input < 1 || input > 100) {
 			return "Inserisci un numero tra 1 e 100!";
 		} else if (input > randomNumber) {
@@ -53,10 +59,22 @@ export default function GuessNumber() {
 				<input
 					name="attempt-input"
 					type="number"
+					disabled={gameOver}
 					value={lastAttempt}
 					onChange={(e) => setLastAttempt(e.target.value)}
 				/>
-				<button type="submit">Prova!</button>
+
+				<button type="submit" disabled={gameOver}>
+					Prova
+				</button>
+
+				{gameOver ? (
+					<button type="button" onClick={initializeGame}>
+						Reset
+					</button>
+				) : (
+					""
+				)}
 			</form>
 
 			<div className="attempts">
