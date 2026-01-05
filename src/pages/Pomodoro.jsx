@@ -1,9 +1,11 @@
-import { useState } from "react";
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <Biome bug> */
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Pomodoro() {
 	const [timer, setTimer] = useState();
-	const [seconds, setSeconds] = useState(1500);
+	const [seconds, setSeconds] = useState(10);
+	const [activity, setActivity] = useState("work");
 
 	function handleStart() {
 		if (timer) clearInterval(timer);
@@ -27,6 +29,24 @@ export default function Pomodoro() {
 		setTimer(undefined);
 		setSeconds(1500);
 	}
+
+	useEffect(() => {
+		if (seconds === 0) {
+			if (activity === "work") {
+				if (timer) clearInterval(timer);
+
+				setSeconds(300);
+				setActivity("pause");
+				const interval = setInterval(() => {
+					setSeconds((prev) => prev - 1);
+				}, 1000);
+				setTimer(interval);
+			} else {
+				if (timer) clearInterval(timer);
+				setSeconds(0);
+			}
+		}
+	}, [seconds]);
 
 	function secondsToString(seconds) {
 		const minutes = Math.floor(seconds / 60);
@@ -61,6 +81,10 @@ export default function Pomodoro() {
 
 				<div className="timer">
 					<div>{secondsToString(seconds)}</div>
+				</div>
+
+				<div className="activity">
+					{activity === "work" ? "LAVORO" : "PAUSA"}
 				</div>
 			</div>
 		</div>

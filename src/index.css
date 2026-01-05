@@ -307,6 +307,18 @@ body {
 			background-color: rgb(10, 73, 10);
 		}
 	}
+
+	.activity {
+		text-align: center;
+		margin-inline: 4rem;
+		padding: 0.5rem;
+		font-size: 2rem;
+		font-weight: 700;
+		background-color: rgb(236, 236, 236);
+		border-bottom: solid 10px #ddd;
+		border-bottom-right-radius: 100%;
+		border-bottom-left-radius: 100%;
+	}
 }
 
 .citations {
