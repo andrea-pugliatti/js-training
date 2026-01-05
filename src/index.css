@@ -201,4 +201,39 @@ body {
 			margin-top: 1rem;
 		}
 	}
+	.attempt-input {
+		display: flex;
+		justify-content: center;
+
+		input {
+			max-width: 120px;
+			font-size: 2rem;
+			padding: 0.5rem 0.7rem;
+			border: 2px dashed black;
+			border-right: none;
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;
+		}
+
+		button {
+			font-weight: 700;
+			padding: 0.5rem 0.7rem;
+			background-color: white;
+			border: 2px solid black;
+			&:hover {
+				cursor: pointer;
+				background-color: beige;
+			}
+		}
+
+		button:nth-child(3) {
+			border-left: none;
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 15px;
+		}
+	}
+
+	.number {
+		font-weight: 700;
+	}
 }

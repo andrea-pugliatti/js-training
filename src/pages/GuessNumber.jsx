@@ -29,7 +29,6 @@ export default function GuessNumber() {
 	}
 
 	function getResponse(input) {
-		console.log(randomNumber);
 		if (input < 1 || input > 100) {
 			return "Inserisci un numero tra 1 e 100!";
 		} else if (input > randomNumber) {
@@ -53,36 +52,32 @@ export default function GuessNumber() {
 						alto", "troppo basso" o "corretto!". Conta i tentativi necessari.
 					</p>
 				</div>
-			</div>
 
-			<form onSubmit={handleSubmit} className="attempt-input">
-				<input
-					name="attempt-input"
-					type="number"
-					disabled={gameOver}
-					value={lastAttempt}
-					onChange={(e) => setLastAttempt(e.target.value)}
-				/>
+				<form onSubmit={handleSubmit} className="attempt-input">
+					<input
+						name="attempt-input"
+						type="number"
+						disabled={gameOver}
+						value={lastAttempt}
+						onChange={(e) => setLastAttempt(e.target.value)}
+					/>
 
-				<button type="submit" disabled={gameOver}>
-					Prova
-				</button>
+					<button type="submit" disabled={gameOver}>
+						Prova
+					</button>
 
-				{gameOver ? (
-					<button type="button" onClick={initializeGame}>
+					<button disabled={!gameOver} type="button" onClick={initializeGame}>
 						Reset
 					</button>
-				) : (
-					""
-				)}
-			</form>
+				</form>
 
-			<div className="attempts">
-				{attempts.map((current, index) => (
-					<div key={index}>
-						{current} {getResponse(current)}
-					</div>
-				))}
+				<div className="attempts">
+					{attempts.map((current, index) => (
+						<div key={index}>
+							<span className="number">{current}</span> {getResponse(current)}
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);
