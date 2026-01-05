@@ -9,7 +9,7 @@ Non serve farli tutti: scegli quelli che ti ispirano di più o in base agli argo
 - [x] Scrivi una funzione che prenda in ingresso un array di 20 numeri e crei due nuovi array: uno con i numeri pari, uno con i dispari. Mostra entrambi gli array e le loro somme.
 - [x] Realizza un gioco "Indovina il numero": il computer sceglie un numero tra 1 e 100. L'utente fa tentativi e riceve feedback "troppo alto", "troppo basso" o "corretto!". Conta i tentativi necessari.
 - [ ] Crea un timer pomodoro: 25 minuti di lavoro, 5 di pausa. Bottoni per start, pausa, reset.
-- [ ] Realizza una pagina con un pulsante che ad ogni click mostra una frase casuale presa dal seguente array con il seguente formato (puoi usare anche l’AI per farti generare le citazioni):
+- [x] Realizza una pagina con un pulsante che ad ogni click mostra una frase casuale presa dal seguente array con il seguente formato (puoi usare anche l’AI per farti generare le citazioni):
 
 ```jsx
 const quotes = [

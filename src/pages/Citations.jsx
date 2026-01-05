@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <Biome bug> */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -91,17 +92,18 @@ export default function Citations() {
 					<h1>Citazioni</h1>
 					<Link to={"/"}>Go Home</Link>
 				</div>
-
-				<button
-					type="button"
-					onClick={() => setRandomNumber(getRandomNumber(0, 19))}
-				>
-					Nuova citazione
-				</button>
+				<div className="new-citation">
+					<button
+						type="button"
+						onClick={() => setRandomNumber(getRandomNumber(0, 19))}
+					>
+						Nuova citazione
+					</button>
+				</div>
 
 				<div className="citation">
-					<span>{quotes[randomNumber].text} </span>
-					<span>{quotes[randomNumber].author}</span>
+					<span className="citation-text">{quotes[randomNumber].text}</span>
+					<span className="citation-author">{quotes[randomNumber].author}</span>
 				</div>
 			</div>
 		</div>
